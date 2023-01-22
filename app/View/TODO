@@ -1,0 +1,27 @@
+
+*error REGISTER USER
+
+
+* messy display
+* check if everypage has:
+ -a start session
+-home page with Login button and Logout
+-footer with proper links
+- detailed pages  better display
+
+- add read me explainning where things were used
+- delete files that are not being used.
+
+-store messAGE FILE - CHECK IF IT CAN BE DELETED
+-
+HomePage (View)
+
+
+
+onclick on picture --> send to "/<?=$product->productName?>
+title home page not working padding / space
+footer make it smaller
+contact us Footer
+
+
+
