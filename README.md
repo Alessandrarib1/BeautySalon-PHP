@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+=======
+# Login credentials
+username-> ale
+password-> 123
+
+
+Please use PHPmyAdmin to create the local database, it will not display properly without it. 
+Use the file endAssignment.sql  to autogenerate it
+username root
+password secret123
+
+
+
+
+
+>>>>>>> a0a093702f681dfd2b5a05f4976886f684e177d6
 # Docker template for PHP projects
 This repository provides a starting template for PHP application development.
 
