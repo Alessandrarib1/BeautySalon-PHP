@@ -1,4 +1,12 @@
-//stick ot the botton of the page!
+LogiValidation file --> moved to a case inside of the controller. it was in view before.
+same thing for the logOutFile and editAppointment
+
+* it is not displaying my appointments
+
+*AppointmentCOntroller line 42
+login controller line 10
+
+
 
 //in many files I call modal from the view
 //in the router the display pages should call the controller first

@@ -16,6 +16,62 @@ class router
           $homeController->homePage();
           break;
 
+        case "/loginValidation":
+        if (isset($_POST['LoginButton'])) {
+
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            require_once('../Controller/UserController.php');
+            $userController = new UserController();
+
+            $user = $userController->validateLogin($username, $password);
+
+            if ($user != null) {
+                $_SESSION['user'] = $user;
+                header("location: /ManagementMainPage");
+            } else {
+                $_SESSION['LoginError'] = "Username or password incorrect!";
+                header("location: /Login");
+            }
+        }
+          break;
+
+
+        case "/logOut":
+            session_start();
+            session_destroy();
+            header('location:/homePage');
+
+        case "/editAppointment":
+            if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['dateOfAppointment']) && !empty($_POST['startingTime']) && !empty($_POST['employee']) && !empty($_POST['service'])) {
+                require_once("../Model/Appointment.php");
+                $appointment = new Appointment();
+
+                $updatedCustomerName = htmlspecialchars($_POST["name"]);
+                $updatedEmail = htmlspecialchars($_POST["email"]);
+                $updatedDateOfAppointment = htmlspecialchars($_POST["dateOfAppointment"]);
+                $updatedStartingTime = htmlspecialchars($_POST["startingTime"]);
+                $updatedEmployeeId = htmlspecialchars($_POST['employee']);
+                $updatedProductID = htmlspecialchars($_POST['service']);
+
+                $appointment->customerName = $updatedCustomerName;
+                $appointment->email = $updatedEmail;
+                $appointment->dateOfAppointment = $updatedDateOfAppointment;
+                $appointment->startingTime = $updatedStartingTime;
+                $appointment->employeeId = $updatedEmployeeId;
+                $appointment->productID = $updatedProductID;
+                $appointment->id = $_POST['id'];
+
+                require_once("../Controller/AppointmentController.php");
+                $appointmentController = new AppointmentController();
+                $appointmentController->updateAppointment($appointment);
+                header("location: /ManagementMainPage");
+
+            }
+            break;
+
+
 
 
         case "/api/appointments":
@@ -178,5 +234,24 @@ class router
         require_once('../Controller/ProductController.php');
         $productController = new ProductController();
         return $products = $productController->getAllProducts();
+    }
+
+    public function displayNavBar()
+    {
+        require_once("../View/navBar.php");
+    }
+
+    public function displayFooter()
+    {
+        require_once("../View/Footer.php");
+    }
+
+    public function getAllUsers()
+    {
+        require_once('../Model/User.php');
+        require_once('../Controller/UserController.php');
+        $userController = new UserController();
+
+       return $users = $userController->getAllUsers();
     }
 }
