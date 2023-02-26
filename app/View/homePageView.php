@@ -79,10 +79,17 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
           <?php
+<<<<<<< HEAD
           require_once('../Router/router.php');
           $router = new Router();
           $products = $router->getAllProducts();
 
+=======
+          require_once('../Controller/ProductController.php');
+          $productController = new ProductController();
+
+          $products = $productController->getAllProducts();
+>>>>>>> a0a093702f681dfd2b5a05f4976886f684e177d6
           foreach ($products as $product) {
               ?>
           <div class="col">
