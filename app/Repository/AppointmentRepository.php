@@ -86,7 +86,7 @@ class AppointmentRepository extends baseRepository
             $stmt->bindParam(':dateOfAppointment', $appointment->dateOfAppointment);
             $stmt->bindParam(':employeeId', $appointment->employeeId);
             $stmt->bindParam(':productID', $appointment->productID);
-            $result=$stmt->execute();
+            return $stmt->execute();
     }
     public function getByID($id){
         require_once('../Model/Appointment.php');

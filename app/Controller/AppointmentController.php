@@ -36,4 +36,16 @@ class AppointmentController
         $adminService = new AdminService();
         $adminService->getAppointmentByService($service, $date);
     }
+    public function updateAppointment($appointment){
+        require_once("../Service/AppointmentService.php");
+        $appointmentService = new AppointmentService();
+        $appointmentService->updateAppointment($appointment);
+    }
+
+    public function editAppointmentValidateInput()
+    {
+        require_once("../View/editAppointment.php");
+    }
+
+
 }

@@ -82,12 +82,13 @@
       </div>
       <div class="form-field">
         <label>&nbsp; <br></label>
-        <button id="myBtn" class="btn btn-primary" onclick="displayPopUp();">Send </button><br>
+        <button id="myBtn" formaction="/storeContactUs" class="btn btn-primary" >Send </button><br>
       </div>
         <br>
         <br>
         <br><br>
     </form>
+      <?php if (isset($_SESSION['contactUsMessage'])){ ?><div class="alert alert-<?=$_SESSION['status']?>"> <?=$_SESSION['contactUsMessage']?></div><?php } ?>
 
   </div>
 
@@ -120,35 +121,5 @@
         </div>
     </footer>
 </div>
-<script>
-    function displayPopUp(){
-        <?php
-        if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
-        {
-        require_once("../Model/ContactUs.php");
 
-        $name = htmlspecialchars($_POST["name"]);
-        $email = htmlspecialchars($_POST["email"]);
-        $message = htmlspecialchars($_POST["message"]);
-
-        $contactUs = new ContactUs();
-        $contactUs->name = $name;
-        $contactUs->email = $email;
-        $contactUs->message = $message;
-
-
-        require_once("../Service/SendUsAMessageService.php");
-        $sendUsAMessageService = new SendUsAMessageService();
-        $sendUsAMessageService->storeMessageInTheDatabase($contactUs);
-        ?>   alert("Thanks you for contacting us, we will get back to you as soon as possible!!!");  <?php
-        }
-        }
-        ?>
-
-    }
-    function closePopUp() {
-        popup.classList.remove("closePopUp");
-
-    }
-</script>
 </html>

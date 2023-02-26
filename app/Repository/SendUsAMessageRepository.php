@@ -13,11 +13,9 @@ class SendUsAMessageRepository extends baseRepository
             (:name,:email,  :message)");
 
 
-
         $stmt->bindParam(':name', $contactUs->name);
         $stmt->bindParam(':email', $contactUs->email);
         $stmt->bindParam(':message', $contactUs->message);
-        $result= $stmt->execute();
+       return  $stmt->execute();
     }
-
   }

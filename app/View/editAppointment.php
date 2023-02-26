@@ -19,9 +19,9 @@
         $appointment->productID = $updatedProductID;
         $appointment->id = $_POST['id'];
 
-        require_once("../Service/AppointmentService.php");
-        $appointmentService = new AppointmentService();
-        $appointmentService->updateAppointment($appointment);
+        require_once("../Controller/AppointmentController.php");
+        $appointmentController = new AppointmentController();
+        $appointmentController->updateAppointment($appointment);
         header("location: /ManagementMainPage");
 
 }

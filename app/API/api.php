@@ -47,8 +47,6 @@ class api
     public function storeAppointment()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // your code here
-
             require_once ("../Model/Appointment.php");
             $body = file_get_contents('php://input');
             $obj = json_decode($body);
@@ -59,9 +57,11 @@ class api
             $appointment->startingTime = $obj->time;
             $appointment->dateOfAppointment = $obj->dateOfAppointment;
             $appointment->email = $obj->email;
-             $appointment->customerName = $obj->name;
-
-            $this->appointmentService->bookAppointment($appointment);
+            $appointment->customerName = $obj->name;
+            session_start();
+           if($this->appointmentService->bookAppointment($appointment)){
+               $_SESSION['message'] = "Appointment was booked successfully!!!";
+           }else{  $_SESSION['message'] = "An error has occurred, please try again!!"; }
     }
 
 }

@@ -16,4 +16,14 @@ class LoginController
         $router->route("/ManagementMainPage");
 
     }
+
+    public function LogOut()
+    {
+        require_once("../View/logOut.php");
+    }
+
+    public function validateUsersInput()
+    {
+        require_once("../View/loginValidation.php");
+    }
 }

@@ -81,10 +81,11 @@
         <select required id="employeeName" name="employee" class="form-select">
             <?php
             require_once('../Model/User.php');
-            require_once('../Service/UserService.php');
-            $userService = new UserService();
+            require_once('../Controller/UserController.php');
+            $userController = new UserController();
 
-            $users = $userService->getAll();
+            $users = $userController->getAllUsers();
+
             foreach ($users as $user) {
                 ?>
                 <option value="<?=$user->id?>"> <?php echo $user->firstname ?></option>
@@ -95,10 +96,10 @@
                 <select required id="service" name="service" class="form-select">
                     <?php
                     require_once('../Model/Product.php');
-                    require_once('../Service/ProductService.php');
-                    $productService = new ProductService();
+                    require_once('../Controller/ProductController.php');
+                    $productController = new ProductController();
 
-                    $products = $productService->getAll();
+                    $products = $productController->getAllProducts();
                     foreach ($products as $product) {
                         ?>
                         <option value="<?=$product->id?>"> <?php echo $product->productName ?></option>
@@ -118,6 +119,7 @@
             </div>
     </form>
     <br><br>
+    <?php if (isset($_SESSION['message'])){ ?><div class="alert alert-success"> Appointment booked successfully?</div><?php } ?>
 </div>
     <div id="footer" class="container">
         <footer id="footerHomePage" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

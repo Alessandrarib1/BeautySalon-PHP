@@ -71,9 +71,9 @@ exit();
   <div>
 <br>
       <br>
-      <?php require_once("../Service/AdminService.php");
-      $adminService = new AdminService();
-      $appointments = $adminService->getAppointmentByService($service);
+      <?php require_once("../Controller/AdminController.php");
+      $adminController = new AdminController();
+      $adminController = $adminController->getAppointmentByService($service);
 
       foreach ($appointments as $appointment) {
       require_once("../Service/ProductService.php");

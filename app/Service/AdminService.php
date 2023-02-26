@@ -9,4 +9,10 @@ class AdminService
         $adminRepository->createUser($user);
     }
 
+    public function getAppointmentByService($service)
+    {
+        $adminRepository = new AdminRepository();
+        $adminRepository->getAppointmentByService($service);
+    }
+
 }
