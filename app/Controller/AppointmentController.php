@@ -13,10 +13,7 @@ class AppointmentController
       $appointmentService = new AppointmentService();
       return $appointmentService->getById($appointment);
   }
-    public function EditAppointment()
-    {
-        require_once("../View/editAppointment.php");
-    }
+
 
     public function searchByService($service)
     {
@@ -45,6 +42,7 @@ class AppointmentController
     public function editAppointmentValidateInput()
     {
         require_once("../View/editAppointment.php");
+        //the content from this file has been moved to the router
     }
 
 
