@@ -6,8 +6,6 @@ class router
   public function route($url){
 
 
-
-
     switch ($url) {
 
       
@@ -17,6 +15,8 @@ class router
             $homeController = new HomeController();
           $homeController->homePage();
           break;
+
+
 
         case "/api/appointments":
             require_once("../API/api.php");
@@ -35,6 +35,7 @@ class router
             $api = new api();
             $api->storeAppointment();
             break;
+
 
 
           case "/ManagementMainPage":
@@ -56,7 +57,9 @@ class router
             break;
 
         case "/RegisterUser":
-            require_once("../View/RegisterUsers.php");
+            require_once("../Controller/AdminController.php");
+            $adminController = new AdminController();
+            $adminController->DisplayRegisterUserPage();
             break;
 
 
@@ -80,16 +83,22 @@ class router
             break;
 
         case "/displayAppointmentByService":
-            require_once("../View/displayAppointmentByService.php");
+            require_once("../Controller/AdminController.php");
+            $adminController = new AdminController();
+            $adminController->DisplayAppointmentByServiceView();
             break;
 
             case "/logOut":
-            require_once("../View/logOut.php");
+                require_once ("../Controller/LoginController.php");
+                $loginController = new LoginController();
+                $loginController->LogOut();
             break;
 
 
         case "/editAppointment" :
-            require_once("../View/editAppointment.php");
+            require_once("../Controller/AppointmentController.php");
+            $appointmentController = new AppointmentController();
+            $appointmentController->editAppointmentValidateInput();
             break;
 
 
@@ -103,25 +112,15 @@ class router
             break;
 
 
-        case "/deleteAppointment":
-        require("../View/deleteAppointment.php");
+
+        case "/storeContactUs":
+        require_once("../Controller/ContactUsController.php");
+        $contactUsController = new ContactUsController();
+        $contactUsController->processData($_POST['name'], $_POST['email'], $_POST['message']);
         break;
 
-        case "/addAppointment":
-        require("../View/addAppointment.php");
-        break;
-
-        case "/storeMessage":
-            require("../View/storeMessage.php");
-            break;
 
 
-
-
-
-
-
-  
         case "/HairStyling":
       require_once("../Controller/HomeController.php");
       $homeController = new HomeController();
@@ -129,9 +128,9 @@ class router
       break;
   
         case "/sendUsAMessage":
-          require_once("../Controller/HomeController.php");
-          $homeController = new HomeController();
-          $homeController->sendUsAMessage();
+            require_once ("../Controller/ContactUsController.php");
+            $contactUsController = new ContactUsController();
+            $contactUsController->sendUsAMessageView();
           break;
               
         case "/Manicure":
@@ -161,33 +160,23 @@ class router
                   break;
 
         case "/loginValidation":
-            require_once("../View/loginValidation.php");
+            require_once("../Controller/LoginController.php");
+            $loginController = new LoginController();
+            $loginController->validateUsersInput();
             break;
 
 
-
-        /*case "/validateLogin":
-                  require_once("../Controller/LoginController.php");
-                  $loginController = new LoginController();
-                  $loginController->validateLogin();
-                  break;
-                          */
-
-        case "/test":
-                              require_once("../Controller/HomeController.php");
-                              $homeController = new HomeController();
-                              $homeController->test();
-                              break;
-/*
-        case "/storeData":
-                          require_once("../Controller/ContactUsController.php");
-                          $ContactUs = new ContactUsController();
-                          $ContactUs->storeData();
-                          break;*/
       default:
           http_response_code(404);
   
   }
 
   }
+
+    public function getAllProducts()
+    {
+        require_once('../Controller/ProductController.php');
+        $productController = new ProductController();
+        return $products = $productController->getAllProducts();
+    }
 }

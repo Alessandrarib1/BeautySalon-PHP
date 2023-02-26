@@ -30,9 +30,5 @@ class HomeController
 
     }
 
-    public function sendUsAMessage()
-    {
-        require_once("../View/sendUsAMessage.php");
 
-    }
 }

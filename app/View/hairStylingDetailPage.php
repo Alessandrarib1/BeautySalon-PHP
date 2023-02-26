@@ -60,14 +60,15 @@
 </nav>
 
 <div class="myBackgroundHairStyling">
-    <div class="container m-3 ">
+    <div class="container m-3 " id="container">
+
         <div class="row" style="align-content: center; justify-items: center;" >
-            <div class="col-sm"><h1 class="hairH1">What Your Hair Wants You To Know</h1>
-            </div>
-        </div>
+            <div class="col-sm"><h1 class="hairH1">What Your Hair Wants You To Know</h1></div><br><br><br>
+    </div>
         <div class="container m-3 ">
             <div class="row" style="align-content: center; justify-items: center;" >
-                <div class="col-sm"><h3 class="hairH3">
+                <div class="col-sm">
+                    <h3 class="hairH3">
                             All you need to know about Healthy Hair, Hair Loss Prevention, Hair Restoration, Remedies, Solutions and Haircare,
                             from the Hair Doctors to the Nation.</h3>
                 </div>
@@ -81,6 +82,7 @@
                             </p>
                     </div>
                 </div>
+            </div>
 
 
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">

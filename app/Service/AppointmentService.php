@@ -46,7 +46,7 @@ class AppointmentService
     {
         require_once("../Repository/AppointmentRepository.php");
         $appointmentRepository = new AppointmentRepository();
-        $appointmentRepository->bookAppointment($appointment);
+        return $appointmentRepository->bookAppointment($appointment);
     }
     public function getById($id){
         require_once("../Repository/AppointmentRepository.php");

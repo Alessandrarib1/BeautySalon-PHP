@@ -1,27 +1,31 @@
+//stick ot the botton of the page!
+
+//in many files I call modal from the view
+//in the router the display pages should call the controller first
+//in the router I have some functions calling the controller to display some pages, but the interaction is only between the
+//controller and view, it does not go into other layers. Ex: $adminController->DisplayRegisterUserPage();
+//router,  case "/editAppointment" : line 97
+                           require_once("../Controller/AppointmentController.php");
+                           $appointmentController = new AppointmentController();
+         It calls the controller, which calls the view (the view is only validating the data and calling back the controller)
+  //case editAppointmentView need to be fixed
 
 *error REGISTER USER
 
 
-* messy display
-* check if everypage has:
- -a start session
--home page with Login button and Logout
--footer with proper links
-- detailed pages  better display
+// when click on edit appointment, if u click in update appointment button without doing anything it takes u to a different
+page and no feedback. It only happens for cases where the appointment was made without filling all fields.
+//when registering new users no feedback message
 
-- add read me explainning where things were used
+* messy display
+
+- add read me explaining where things were used
 - delete files that are not being used.
 
 -store messAGE FILE - CHECK IF IT CAN BE DELETED
--
-HomePage (View)
 
 
 
-onclick on picture --> send to "/<?=$product->productName?>
-title home page not working padding / space
-footer make it smaller
-contact us Footer
 
 
 

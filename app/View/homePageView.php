@@ -79,11 +79,12 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
           <?php
-          require_once("../Service/ProductService.php");
-          $productService = new ProductService();
-          $products = $productService->getAll();
+          require_once('../Router/router.php');
+          $router = new Router();
+          $products = $router->getAllProducts();
 
-          foreach ($products as $product) { ?>
+          foreach ($products as $product) {
+              ?>
           <div class="col">
             <div id="darkPinkBackground" class="card shadow-sm">
                 <a href="/<?=$product->productName?>"> <img class="productPictures" src="<?=$product->imageSRC?>"
