@@ -18,43 +18,36 @@ require_once('../Router/router.php');
 $router = new Router();
 $router->displayNavBar();
 ?>
-
-  <img src="..\pictures.4.jpg" class="img-fluid" alt="my background picture">
-  <h1>INSERT A BACKGROUD PICTURE HERE!</h1>
-  <h1>Recharge your battery with Massage Therapy</h1><br>
-  <h2> We have nothing to fear but missing our massage appointment time. </h2>
-  <h3><br>25 Reasons to Get a Massage</h3>
-  <p>
-    <br>Relieve stress
-    <br>Relieve postoperative pain
-    <br>Reduce anxiety
-    <br>Manage low-back pain
-    <br>Help fibromyalgia pain
-    <br>Reduce muscle tension
-    <br>Enhance exercise performance
-    <br>Relieve tension headaches
-    <br>Sleep better
-    <br>Ease symptoms of depression
-    <br>Improve cardiovascular health
-    <br>Reduce pain of osteoarthritis
-    <br>Decrease stress in cancer patients
-    <br>Improve balance in older adults
-    <br>Decrease rheumatoid arthritis pain
-    <br>Temper effects of dementia
-    <br>Promote relaxation
-    <br>Lower blood pressure
-    <br>Decrease symptoms of Carpal Tunnel Syndrome
-    <br>Help chronic neck pain
-    <br>Lower joint replacement pain
-    <br>Increase range of motion
-    <br>Decrease migraine frequency
-    <br>Improve quality of life in hospice care
-    <br>Reduce chemotherapy-related nausea
-  </p>
-  <br>
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary" type="button">Make an Appointment</button>
-  </div>
+<div class="myBackgroundMassage">
+    <div class="container m-3" id="container">
+        <div class="row" style="align-content: center; justify-items: center;">
+            <div class="col-sm">
+                <h1 class="massageH1">Recharge your battery with Massage Therapy</h1>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hairH3">
+                <h3>We have nothing to fear but missing our massage appointment time!</h3>
+                <h3><br>10 Reasons to Get a Massage</h3>
+                <h5 class="hairP">
+                        <br>Relieve stress
+                        <br>Relieve postoperative pain
+                        <br>Reduce anxiety
+                        <br>Manage low-back pain
+                        <br>Help fibromyalgia pain
+                        <br>Reduce muscle tension
+                        <br>Enhance exercise performance
+                        <br>Relieve tension headaches
+                        <br>Sleep better
+                        <br>Ease symptoms of depression
+                    </h5>
+                <button id="bookAppointment" class="btn btn-primary" type="button">Make an Appointment</button>
+            </div>
+        </div><br><br><br>
+    </div>
+</div>
+</div>
   <main>
       <?php
       $router->displayFooter();

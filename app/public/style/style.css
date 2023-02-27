@@ -107,11 +107,9 @@ width: 100px; margin-top:  -50px; border-radius: 50px; box-shadow: 0 2px 5px rgb
     font-weight: bold;
 }
 .myBackgroundHairStyling{
-    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-image: url('/pictures/3.jpg');
+    background-image: url('/pictures/hair.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -119,10 +117,67 @@ width: 100px; margin-top:  -50px; border-radius: 50px; box-shadow: 0 2px 5px rgb
 .hairH1{
     display: flex;
     align-items: center;
+    margin-top: 200px;
     justify-content: center;
-    background-color: rgba(0,0,0,0.8);
-    color: white;
+    background-color: #dac5d6;
+    color: #805076;
 }
+.hairH3{
+    background-color: rgba(0,0,0,0.8);
+    color: #dac5d6;
+    margin-top: 100px;
+}
+.hairP{
+    font-size: medium;
+    color: #dac5d6;
+    margin-top: 50px;
+}
+.massage{
+   background-image: url('/pictures/massagee.jpg');
+}
+#bookAppointment{
+    margin-top: 30px;
+    float: right;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.myBackgroundHNails{
+    display: flex;
+    justify-content: center;
+    background-image: url('/pictures/n.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.longParagraph{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.hairH3Nails{
+    background-color: rgba(0,0,0,0.8);
+    color: #dac5d6;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.myBackgroundMassage{
+    display: flex;
+    justify-content: center;
+    background-image: url('/pictures/m1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.massageH1{
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    justify-content: center;
+    background-color: #dac5d6;
+    color: #805076;
+}
+
+
 
 
 

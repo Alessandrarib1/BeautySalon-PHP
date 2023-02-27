@@ -42,17 +42,14 @@ $router->displayNavBar();
       </div>
       <div class="form-field">
         <label>&nbsp; <br></label>
-        <button id="myBtn" formaction="/storeContactUs" class="btn btn-primary" >Send </button><br>
+        <button id="myBtn" formaction="/sendUsAMessage" class="btn btn-primary" >Send </button><br>
       </div>
         <br>
         <br>
         <br><br>
     </form>
       <?php if (isset($_SESSION['contactUsMessage'])){ ?><div class="alert alert-<?=$_SESSION['status']?>"> <?=$_SESSION['contactUsMessage']?></div><?php } ?>
-
   </div>
-
-
 </body>
 
 <?php

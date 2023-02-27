@@ -20,28 +20,32 @@ require_once('../Router/router.php');
 $router = new Router();
 $router->displayNavBar();
 ?>
+<div class="myBackgroundHNails">
+    <div class="container m-3" id="container">
+        <div class="row" style="align-content: center; justify-items: center;">
+            <div class="col-sm">
+                <h1 class="hairH1">“You can't change the world, but you can change your nails.”</h1>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hairH3Nails">
+                <h3>How to Improve your Self Confidence by Getting your nails done</h3>
+                <h5 class="longParagraph">A manicure is an amazing way to look and feel amazing! Most hair and skin types love a manicure, however most nail
+                    beauticians have personally encountered women who suffer from low self-confidence resulting from a past live lesson.
+                    It is pretty crazy to think that most of the women I have met suffer from low self-esteem, let alone it being linked
+                    to manicures! It is crazy because most of us women do have self esteem, a lot more of it than some of us men, but
+                    not all of us women enjoy indulging in self expression for ourselves. Here are 3 ways your manicure can help in
+                    improving your self-confidence. <br>
 
-  <img src="..\pictures.4.jpg" class="img-fluid" alt="my background picture">
-  <h1>INSERT A BACKGROUD PICTURE HERE!</h1>
-  <h1>“You can't change the world, but you can change your nails.”</h1>
-  <h3>How to Improve your Self Confidence by Getting your nails done</h3>
-
-  <p>A manicure is an amazing way to look and feel amazing! Most hair and skin types love a manicure, however most nail
-    beauticians have personally encountered women who suffer from low self-confidence resulting from a past live lesson.
-    It is pretty crazy to think that most of the women I have met suffer from low self-esteem, let alone it being linked
-    to manicures! It is crazy because most of us women do have self esteem, a lot more of it than some of us men, but
-    not all of us women enjoy indulging in self expression for ourselves. Here are 3 ways your manicure can help in
-    improving your self-confidence. <br>
-
-    <br>As a young woman trying to find her way in this world, one of the most important things I need to have is self
-    confidence. Self confidence comes in many different forms for many women, but nevertheless, no one succeeds without
-    it. You need self confidence because it is the foundation of everything you are going to do. if you don't believe in
-    yourself with anything you are doing, you will fail. If you don't believe in yourself, who else will?<br>
-  </p>
-
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary" type="button">Make an Appointment</button>
-  </div>
+                </h5>
+                <button id="bookAppointment" class="btn btn-primary" type="button">Make an Appointment</button>
+            </div></div><br><br><br>
+        </div>
+    </div>
+</div>
   <main>
       <?php
       $router->displayFooter();

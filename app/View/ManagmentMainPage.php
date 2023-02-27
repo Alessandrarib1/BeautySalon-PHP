@@ -32,7 +32,6 @@ $router->displayNavBar();
       <br>
 <h1 style="text-align:center"> Appointments </h1>
       <div id="appointments" class="d-flex flex-wrap p-5" style="min-height: 500px;">
-          loadData();
       </div>
 
 

@@ -15,7 +15,8 @@ class ContactUsController
             $_SESSION['status'] = "danger";
         }
         $this->sendUsAMessageView();
-
+    unset($_SESSION['contactUsMessage']);
+    unset( $_SESSION['status']);
     }
 
 
