@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Feb 26, 2023 at 12:25 PM
+-- Generation Time: Feb 27, 2023 at 04:05 PM
 -- Server version: 10.9.4-MariaDB-1:10.9.4+maria~ubu2204
 -- PHP Version: 8.0.25
 
@@ -42,19 +42,10 @@ CREATE TABLE `Appointment` (
 --
 
 INSERT INTO `Appointment` (`id`, `startingTime`, `customerName`, `email`, `dateOfAppointment`, `employeeId`, `productID`) VALUES
-(11, '12:43', 'Corey', 'ale@gmail.com', '2023-01-19', 5, 2),
-(15, '11:43', 'Ale', 'A@gmail.com', '2023-01-22', 3, 2),
-(33, '13:43', 'x', '', '', 5, 1),
-(34, '13:43', 'x', 'at@gmail.com', '', 5, 1),
-(37, '00:10', 'Paty', 'pa@gmail.com', '2023-02-17', 3, 1),
-(38, '14:11', 'ale', 'a@gmail.com', '2023-02-02', 3, 3),
-(39, '', '', '', '', 3, 1),
-(40, '14:20', 'ale', 'a@a', '2023-02-20', 3, 3),
-(41, '15:29', 'ale', 'b@b', '2023-02-23', 3, 1),
-(42, '12:33', 'a', 'b@c', '2023-02-15', 3, 1),
-(43, '15:32', 'ale', 'c@c', '2023-02-21', 3, 1),
-(44, '12:36', 'ale', 'b@c', '2023-02-14', 3, 1),
-(45, '12:37', 'ale', 'sa@f', '2023-02-21', 3, 1);
+(47, '20:47', 'Ale', 'a@t', '2023-03-01', 9, 1),
+(48, '15:59', 'Marcia', 'm@m', '2023-02-28', 8, 2),
+(49, '19:02', 'Henrique', 'a@a', '2023-02-28', 9, 3),
+(50, '19:21', 'MArio', 'a@g', '2023-02-28', 9, 2);
 
 -- --------------------------------------------------------
 
@@ -78,7 +69,14 @@ INSERT INTO `Message` (`id`, `name`, `email`, `message`) VALUES
 (85, 's', 's@D', 'sds'),
 (86, 's', 's@D', 'sds'),
 (87, 's', 's@D', 'sds'),
-(88, 'a', 'a@f', 'f');
+(88, 'a', 'a@f', 'f'),
+(89, 'ale', 'a@t', 'a'),
+(90, 'ale', 'a@D', 'dddd'),
+(91, 'a', 'f@h', 'd'),
+(92, 'a', 'f@h', 'd'),
+(93, 'a', 'f@h', 'd'),
+(94, 'Ale', 'gds@g', 'fddgggh'),
+(95, 'Ale', 'gds@g', 'fddgggh');
 
 -- --------------------------------------------------------
 
@@ -124,10 +122,8 @@ CREATE TABLE `User` (
 --
 
 INSERT INTO `User` (`id`, `username`, `password`, `firstname`, `lastname`) VALUES
-(3, 'Thais', '$2y$10$U2WQDGrR9n1B9dL90nhLhu/Lx1y2GTElcaMeD38btFYJHCeGZW68u', 'thais', 'Melo'),
-(4, 'corey', '$2y$10$7H8L2Qtt.1zr2KGIZ5tOTOJhF2HnjAB9b0Myz9VZgQr84Y.mlu0qq', 'co', 'co'),
-(5, 'ale', '$2y$10$/bK3eTTJo5GI3M8b.39reeWsm9yJi001s1sWHtB5dwhsSlgSCrewW', 'Alessandra', 'Ribeiro'),
-(6, 'ale', '$2y$10$WNYPp1l5lm2UG9kAG0P1OurPlh5vUGu0pUOiFX8T7DrnR8nBcDKPO', 'ales', 'ribeiro');
+(8, 'ale', '$2y$10$87aLitxe/J6Vh8AFhNGr4eC5aQ9VT6v3mEgmXuxupygTcCuSmM3ji', 'Alessandra', 'Ribeiro'),
+(9, 'corey', '$2y$10$GTDYOw2NonQkQP7j6z7mZeqqvSU5XTXK/m0v5foUufQho4ei0ZFpy', 'Corey', 'Waple');
 
 --
 -- Indexes for dumped tables
@@ -165,13 +161,13 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT for table `Appointment`
 --
 ALTER TABLE `Appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `Message`
 --
 ALTER TABLE `Message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `Product`
@@ -183,7 +179,7 @@ ALTER TABLE `Product`
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
