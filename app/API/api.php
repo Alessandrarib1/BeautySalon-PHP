@@ -24,14 +24,6 @@ class api
 
         }
 
-        // Respond to a POST request to /api/article
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            // your code here
-            // read JSON from the request, convert it to an article object
-            // and have the service insert the article into the database
-
-        }
     }
     public function deleteAppointment(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -62,6 +54,8 @@ class api
            if($this->appointmentService->bookAppointment($appointment)){
                $_SESSION['message'] = "Appointment was booked successfully!!!";
            }else{  $_SESSION['message'] = "An error has occurred, please try again!!"; }
+            unset($_SESSION['message']);
+
     }
 
 }

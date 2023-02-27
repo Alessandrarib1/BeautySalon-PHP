@@ -22,35 +22,26 @@ $router->displayNavBar();
 ?>
 
 <div class="myBackgroundHairStyling">
-    <div class="container m-3 " id="container">
-
-        <div class="row" style="align-content: center; justify-items: center;" >
-            <div class="col-sm"><h1 class="hairH1">What Your Hair Wants You To Know</h1></div><br><br><br>
-    </div>
-        <div class="container m-3 ">
-            <div class="row" style="align-content: center; justify-items: center;" >
-                <div class="col-sm">
-                    <h3 class="hairH3">
-                            All you need to know about Healthy Hair, Hair Loss Prevention, Hair Restoration, Remedies, Solutions and Haircare,
-                            from the Hair Doctors to the Nation.</h3>
-                </div>
-    </div>
-            <div class="container m-3 ">
-                <div class="row" style="align-content: center; justify-items: center;" >
-                    <div class="col-sm"><p class="hairP">
-                           Craving a fresh new look? What comes to your mind first when thinking about a fresh new look; different makeup, new
-                                clothes, new accessories? Or maybe, a new HAIRCUT?! The one thing that can totally change your appearance and your
-                                personality – a new hair cut, a new style. True isn’t it?!
-                            </p>
-                    </div>
-                </div>
+    <div class="container m-3" id="container">
+        <div class="row" style="align-content: center; justify-items: center;">
+            <div class="col-sm">
+                <h1 class="hairH1">What Your Hair Wants You To Know</h1>
+                <br>
+                <br>
+                <br>
             </div>
-
-
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary" type="button">Make an Appointment</button>
-  </div>
+        </div>
+        <div class="row">
+            <div class="hairH3">
+                <h4>Craving a fresh new look? What comes to your mind first when thinking about a fresh new look; different makeup, new clothes, new accessories? Or maybe, a new HAIRCUT?! The one thing that can totally change your appearance and your personality – a new hair cut, a new style. True isn’t it?!</h4>
+                    <h5 class="hairP"> Looking for a mood-boosting change? It is a widely known fact that a fresh haircut can transform your look and uplift your spirits. At our salon, we are committed to helping you achieve that feeling of confidence and radiance. Don't hesitate to book an appointment today and let our experts help you discover your best hair look yet!</h5>
+                    <button id="bookAppointment" class="btn btn-primary" type="button">Make an Appointment</button>
+            </div>
+        </div><br><br><br>
+        </div>
+        </div>
 </div>
+
 
       <?php
       $router->displayFooter();

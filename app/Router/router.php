@@ -44,31 +44,10 @@ class router
             header('location:/homePage');
 
         case "/editAppointment":
-            if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['dateOfAppointment']) && !empty($_POST['startingTime']) && !empty($_POST['employee']) && !empty($_POST['service'])) {
-                require_once("../Model/Appointment.php");
-                $appointment = new Appointment();
-
-                $updatedCustomerName = htmlspecialchars($_POST["name"]);
-                $updatedEmail = htmlspecialchars($_POST["email"]);
-                $updatedDateOfAppointment = htmlspecialchars($_POST["dateOfAppointment"]);
-                $updatedStartingTime = htmlspecialchars($_POST["startingTime"]);
-                $updatedEmployeeId = htmlspecialchars($_POST['employee']);
-                $updatedProductID = htmlspecialchars($_POST['service']);
-
-                $appointment->customerName = $updatedCustomerName;
-                $appointment->email = $updatedEmail;
-                $appointment->dateOfAppointment = $updatedDateOfAppointment;
-                $appointment->startingTime = $updatedStartingTime;
-                $appointment->employeeId = $updatedEmployeeId;
-                $appointment->productID = $updatedProductID;
-                $appointment->id = $_POST['id'];
-
                 require_once("../Controller/AppointmentController.php");
                 $appointmentController = new AppointmentController();
-                $appointmentController->updateAppointment($appointment);
+                $appointmentController->updateAppointment();
                 header("location: /ManagementMainPage");
-
-            }
             break;
 
 
@@ -102,14 +81,8 @@ class router
 
         case "/RegisterUsers":
             require_once("../Controller/AdminController.php");
-            require_once ("../Model/User.php");
-            $user = new User();
-            $user->firstname = $_POST['firstname'];
-            $user->lastname = $_POST['lastname'];
-            $user->password = $_POST['password'];
-            $user->username = $_POST['username'];
             $adminController = new AdminController();
-            $adminController->RegisterNewUser($user);
+            $adminController->RegisterNewUser();
             break;
 
         case "/RegisterUser":
@@ -169,11 +142,6 @@ class router
 
 
 
-        case "/storeContactUs":
-        require_once("../Controller/ContactUsController.php");
-        $contactUsController = new ContactUsController();
-        $contactUsController->processData($_POST['name'], $_POST['email'], $_POST['message']);
-        break;
 
 
 
@@ -186,7 +154,12 @@ class router
         case "/sendUsAMessage":
             require_once ("../Controller/ContactUsController.php");
             $contactUsController = new ContactUsController();
-            $contactUsController->sendUsAMessageView();
+            if(isset($_POST['name'], $_POST['email'], $_POST['message']))
+            {
+                $contactUsController->processData($_POST['name'], $_POST['email'], $_POST['message']);
+            }else{
+                $contactUsController->sendUsAMessageView();
+            }
           break;
               
         case "/Manicure":

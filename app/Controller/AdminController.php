@@ -9,8 +9,14 @@ class AdminController
   }
 
 
-    public function RegisterNewUser($user)
+    public function RegisterNewUser()
     {
+        require_once ("../Model/User.php");
+        $user = new User();
+        $user->firstname = $_POST['firstname'];
+        $user->lastname = $_POST['lastname'];
+        $user->password = $_POST['password'];
+        $user->username = $_POST['username'];
         require_once("../Service/AdminService.php");
         $adminService = new AdminService();
         $adminService->createUser($user);
