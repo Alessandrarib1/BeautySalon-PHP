@@ -1,10 +1,8 @@
 <?php
-
 class router
 {
 
   public function route($url){
-
 
     switch ($url) {
 
@@ -134,14 +132,20 @@ class router
 
         case "/editAppointmentView":
             require_once("../Controller/AppointmentController.php");
-            $appointmentController = new AppointmentController();
-            session_start();
-            $_SESSION['appointment']  = $appointmentController->DisplayEditAppointmentPage($_POST['appointmentID']);
-            require_once ("../View/editAppointmentView.php");
+           $appointmentController = new AppointmentController();
+           // session_start();
+            //$_SESSION['appointment']  = $appointmentController->DisplayEditAppointmentPage($_POST['appointmentID']);
+            $_SESSION['appointment']  = $appointmentController->editAppointmentView($_POST['appointmentID']);
+            //require_once ("../View/editAppointmentView.php");
             break;
 
-
-
+        /*case "/editAppointmentView":
+            session_start();
+            require_once("../Controller/AppointmentController.php");
+            $appointmentController = new AppointmentController();
+            $appointmentController->DisplayEditAppointmentPage($_POST['appointmentID']);
+            require_once ("../View/editAppointmentView.php");
+            break;*/
 
 
 
@@ -202,29 +206,4 @@ class router
 
   }
 
-    public function getAllProducts()
-    {
-        require_once('../Controller/ProductController.php');
-        $productController = new ProductController();
-        return $products = $productController->getAllProducts();
-    }
-
-    public function displayNavBar()
-    {
-        require_once("../View/navBar.php");
-    }
-
-    public function displayFooter()
-    {
-        require_once("../View/Footer.php");
-    }
-
-    public function getAllUsers()
-    {
-        require_once('../Model/User.php');
-        require_once('../Controller/UserController.php');
-        $userController = new UserController();
-
-       return $users = $userController->getAllUsers();
-    }
 }

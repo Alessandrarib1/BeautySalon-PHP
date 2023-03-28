@@ -16,10 +16,7 @@
 
 <body class="body">
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
   <div>
 <br>
@@ -29,17 +26,14 @@ $router->displayNavBar();
           <br>
           <br>
           <?php
-          require_once ("../Model/Appointment.php");
+         require_once ("../Model/Appointment.php");
           $appointment = $_SESSION['appointment'];
-
           ?>
           <form  class="form" method="post" action="/editAppointment">
               <div class="col-6" >
                   <label for="employee">Employee: </label>
                   <select name="employee" class="form-select">
                       <?php
-                      $users = $router->getAllUsers();
-
                       foreach ($users as $user) {
                           ?>
                           <option value="<?=$user->id?>"> <?=$user->firstname?></option>
@@ -58,7 +52,6 @@ $router->displayNavBar();
                   <select name="service" class="form-select">
 
                       <?php
-                      $products = $router->getAllProducts();
                       foreach ($products as $product) {
                           ?>
                           <option value="<?=$product->id?>"> <?php echo $product->productName ?></option>
@@ -69,7 +62,7 @@ $router->displayNavBar();
           </form>
           <div id="footer" class="container">
               <?php
-              $router->displayFooter();
+              $this->displayFooter();
               ?>
           </div>
           </body>

@@ -16,10 +16,7 @@
 
 <body class="body">
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
 
   <div id="firstCart" class="text-center"><br><br>
@@ -53,7 +50,7 @@ $router->displayNavBar();
 </body>
 
 <?php
-$router->displayFooter();
+$this->displayFooter();
 ?>
 
 </html>

@@ -15,10 +15,7 @@
 
 <body class="homepageBody">
     <?php
-
-    require_once('../Router/router.php');
-    $router = new Router();
-     $router->displayNavBar();
+    $this->displayNavBar();
     ?>
   <main>
     <div id="firstCart" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
@@ -36,14 +33,7 @@
     <div id="lightPinkBackground" class="album py-5 ">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
           <?php
-
-          require_once('../Router/router.php');
-          $router = new Router();
-
-          $products = $router->getAllProducts();
-
           foreach ($products as $product) {
               ?>
           <div class="col">
@@ -79,7 +69,7 @@
 
   </main>
  <?php
- $router->displayFooter();
+ $this->displayFooter();
  ?>
 </body>
 

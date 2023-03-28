@@ -13,10 +13,7 @@
 </head>
 <body class="body">
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
 <div class="myBackgroundMassage">
     <div class="container m-3" id="container">
@@ -42,7 +39,8 @@ $router->displayNavBar();
                         <br>Sleep better
                         <br>Ease symptoms of depression
                     </h5>
-                <button id="bookAppointment" class="btn btn-primary" type="button">Make an Appointment</button>
+                <a id="bookAppointment" class="btn btn-primary" href="/MakeAnAppointment">Make an appointment</a>
+            </div>
             </div>
         </div><br><br><br>
     </div>
@@ -50,7 +48,7 @@ $router->displayNavBar();
 </div>
   <main>
       <?php
-      $router->displayFooter();
+      $this->displayFooter();
       ?>
 
 </body>

@@ -1,37 +1,59 @@
 <?php
+require_once("BaseController.php");
+require_once("../Model/Appointment.php");
+require_once ("../Service/AppointmentService.php");
+require_once ("../Service/UserService.php");
+require_once("../Service/ProductService.php");
+require_once("../Service/AdminService.php");
 
-class AppointmentController
+class AppointmentController extends BaseController
 {
+    private $userService;
+    private $appointmentService;
+    private $productService;
+    private $adminService;
+
+    public function __construct() {
+        $this->userService = new UserService();
+        $this->appointmentService = new AppointmentService();
+        $this->productService = new ProductService();
+        $this->adminService = new AdminService();
+    }
   public function DisplayAppointmentMainPage()
   {
+      $users =  $this->userService->getAll();
+      $products = $this->productService->getAll();
+
+      /*$message = '';
+      if (isset($_SESSION['message'])) {
+          $message = $_SESSION['message'];
+          unset($_SESSION['message']);
+      }*/
     require_once("../View/MakeAnAppointment.php");
+  }
+  public function editAppointmentView(){
+            session_start();
+            $_SESSION['appointment']  = $this->DisplayEditAppointmentPage($_POST['appointmentID']);
+            require_once ("../View/editAppointmentView.php");
   }
   public function DisplayEditAppointmentPage($appointment)
   {
-      require_once("../Model/Appointment.php");
-      require_once ("../Service/AppointmentService.php");
-      $appointmentService = new AppointmentService();
-      return $appointmentService->getById($appointment);
+      $users =  $this->userService->getAll();
+      $products = $this->productService->getAll();
+      return $this->appointmentService->getById($appointment);
   }
-
 
     public function searchByService($service)
     {
-        require_once("../Service/AdminService.php");
-        $adminService = new AdminService();
-        $adminService->getAppointmentByService($service);
+        $this->adminService->getAppointmentByService($service);
     }
     public function searchByDate($date)
     {
-        require_once("../Service/AdminService.php");
-        $adminService = new AdminService();
-        $adminService->getAppointmentByDate($date);
+        $this->adminService->getAppointmentByDate($date);
     }
     public function getAvailableSpotsByService($service, $date)
     {
-        require_once("../Service/AdminService.php");
-        $adminService = new AdminService();
-        $adminService->getAppointmentByService($service, $date);
+        $this->adminService->getAppointmentByService($service, $date);
     }
     public function updateAppointment()
     {
@@ -64,6 +86,5 @@ class AppointmentController
         require_once("../View/editAppointment.php");
         //the content from this file has been moved to the router
     }
-
 
 }

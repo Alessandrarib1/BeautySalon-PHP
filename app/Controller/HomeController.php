@@ -1,11 +1,13 @@
 <?php
-
-class HomeController
+require_once("BaseController.php");
+class HomeController extends BaseController
 {
     public function homePage()
     {
+        require_once("../Service/ProductService.php");
+        $productService = new ProductService();
+        $products = $productService->getAll();
         require_once("../View/homePageView.php");
-
     }
 
     public function hairStylingDetailPage()

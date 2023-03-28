@@ -15,13 +15,8 @@
 <body class="body">
 <main>
     <?php
-
-    require_once('../Router/router.php');
-    $router = new Router();
-    $router->displayNavBar();
+    $this->displayNavBar();
     ?>
-
-
 <div id="makeAppointment" class="text-center" style="min-height: 400px;"><br>
     <br>
     <h1 class="text-center"> Book your appointment</h1>
@@ -40,8 +35,6 @@
             <label for="employee">Select Employee: </label>
         <select required id="employeeName" name="employee" class="form-select">
             <?php
-            $users = $router->getAllUsers();
-
             foreach ($users as $user) {
                 ?>
                 <option value="<?=$user->id?>"> <?php echo $user->firstname ?></option>
@@ -51,8 +44,6 @@
                 <label for="service: ">Select Service: </label>
                 <select required id="service" name="service" class="form-select">
                     <?php
-                    $products = $router->getAllProducts();
-
                     foreach ($products as $product) {
                         ?>
                         <option value="<?=$product->id?>"> <?php echo $product->productName ?></option>
@@ -75,7 +66,7 @@
     <?php if (isset($_SESSION['message'])){ ?><div class="alert alert-success"> Appointment booked successfully?</div><?php } ?>
 </div>
     <?php
-    $router->displayFooter();
+    $this->displayFooter();
     ?>
 
 </main>
@@ -95,8 +86,21 @@
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(appointment)
         }).then(function (response) {
-            return response.json()
+            if (response.ok) {
+                // show success message to user
+                document.getElementById("message").innerHTML = "Appointment booked successfully";
+                document.getElementById("message").classList.add("alert", "alert-success");
+            } else {
+                // show error message to user
+                document.getElementById("message").innerHTML = "Error booking appointment";
+                document.getElementById("message").classList.add("alert", "alert-danger");
+            }
         })
+            .catch(function (error) {
+                // show error message to user
+                document.getElementById("message").innerHTML = "Error booking appointment";
+                document.getElementById("message").classList.add("alert", "alert-danger");
+            });
     }
 </script>
 </body>

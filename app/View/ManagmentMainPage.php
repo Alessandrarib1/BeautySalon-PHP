@@ -21,10 +21,7 @@ exit();
 
 <body class="body">
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
 
   <div id="myAppointmentsH1">
@@ -142,7 +139,7 @@ $router->displayNavBar();
 </div>
 
 <?php
-$router->displayFooter();
+$this->displayFooter();
 ?>
 
 <script>

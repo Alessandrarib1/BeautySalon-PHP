@@ -1,6 +1,6 @@
 <?php
-
-class UserController
+require_once("BaseController.php");
+class UserController extends BaseController
 {
         public function getAllUsers(){
             require_once('../Service/UserService.php');

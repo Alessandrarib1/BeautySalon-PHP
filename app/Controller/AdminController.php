@@ -1,6 +1,6 @@
 <?php
-
-class AdminController
+require_once("BaseController.php");
+class AdminController extends BaseController
 {
 
   public function DisplayManagementPage()

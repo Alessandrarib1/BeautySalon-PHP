@@ -15,10 +15,7 @@
 
 <body>
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
 
 
@@ -43,7 +40,7 @@ $router->displayNavBar();
     </div>
 
   <?php
-  $router->displayFooter();
+  $this->displayFooter();
   ?>
 
   </body>

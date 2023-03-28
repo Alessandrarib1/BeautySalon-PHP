@@ -1,6 +1,6 @@
 <?php
-
-class LoginController
+require_once("BaseController.php");
+class LoginController extends BaseController
 {
 
     public function displayLoginPage()

@@ -1,6 +1,6 @@
 <?php
-
-class ContactUsController
+require_once("BaseController.php");
+class ContactUsController extends BaseController
 {
     public function storeData($contactUs)
     {
