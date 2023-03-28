@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 # Login credentials
 username-> ale
 password-> 123
@@ -13,8 +12,6 @@ password secret123
 
 
 
-
->>>>>>> a0a093702f681dfd2b5a05f4976886f684e177d6
 # Docker template for PHP projects
 This repository provides a starting template for PHP application development.
 
