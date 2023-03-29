@@ -15,10 +15,7 @@
 <body class="body">
 
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
 
 <div class="myBackgroundHairStyling">
@@ -35,16 +32,15 @@ $router->displayNavBar();
             <div class="hairH3">
                 <h4>Craving a fresh new look? What comes to your mind first when thinking about a fresh new look; different makeup, new clothes, new accessories? Or maybe, a new HAIRCUT?! The one thing that can totally change your appearance and your personality – a new hair cut, a new style. True isn’t it?!</h4>
                     <h5 class="hairP"> Looking for a mood-boosting change? It is a widely known fact that a fresh haircut can transform your look and uplift your spirits. At our salon, we are committed to helping you achieve that feeling of confidence and radiance. Don't hesitate to book an appointment today and let our experts help you discover your best hair look yet!</h5>
-                    <button id="bookAppointment" class="btn btn-primary" type="button">Make an Appointment</button>
+                <a id="bookAppointment" class="btn btn-primary" href="/MakeAnAppointment">Make an appointment</a>
+            </div>
             </div>
         </div><br><br><br>
         </div>
         </div>
 </div>
-
-
       <?php
-      $router->displayFooter();
+      $this->displayFooter();
       ?>
 
 </body>

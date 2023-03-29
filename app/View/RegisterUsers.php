@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php //session_start();?>
 <!doctype html>
 <html lang="en">
 
@@ -16,28 +16,26 @@
 <body class="body">
 
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
-
-
-
-
     <div id="createUserDiv" class="text-center" style="min-height: 500px;">
         <br><br>      <br><br>
       <h2>Create new User</h2>
-      <form method="POST" action="/RegisterUsers">
-        <input type="text" name="username" placeholder="Username"><br><br>
-        <input type="password" name="password" placeholder="Password"><br><br>
+      <form method="POST" action="/RegisterUser">
+        <input required type="text" name="username" placeholder="Username"><br><br>
+        <input required type="password" name="password" placeholder="Password"><br><br>
 
-          <input type="text" name="firstname" placeholder="First name"><br><br>
-          <input type="text" name="lastname" placeholder="Last name"><br><br>
-        <input id="createUserButton" type="submit" name="Create new User" value="Create new User"><br><br>
+          <input required type="text" name="firstname" placeholder="First name"><br><br>
+          <input required type="text" name="lastname" placeholder="Last name"><br><br>
+        <input id="createUserButton" type="submit"  name="Create new User" value="Create new User"><br><br>
       </form>
+        <?php if (isset($registerUserMessage)){ ?>
+            <div class="alert alert-<?= $status ?>">
+                <?= $registerUserMessage ?>
+            </div>
+        <?php } ?>
     </div>
     <?php
-    $router->displayFooter();
+    $this->displayFooter();
     ?>
     </body>

@@ -16,10 +16,7 @@
 
 <body class="body">
 <?php
-
-require_once('../Router/router.php');
-$router = new Router();
-$router->displayNavBar();
+$this->displayNavBar();
 ?>
 
   <div id="firstCart" class="text-center"><br><br>
@@ -34,7 +31,7 @@ $router->displayNavBar();
       </div>
       <div class="form-field">
         <label><br> Email: </label>
-        <input required type="text" name="email" placeholder="Enter email" />
+        <input required type="email" name="email" placeholder="Enter email" />
       </div>
       <div class="textArea" style="padding: 2;">
         <label> Your Message:</label><br>
@@ -48,12 +45,16 @@ $router->displayNavBar();
         <br>
         <br><br>
     </form>
-      <?php if (isset($_SESSION['contactUsMessage'])){ ?><div class="alert alert-<?=$_SESSION['status']?>"> <?=$_SESSION['contactUsMessage']?></div><?php } ?>
+    <?php if (isset($contactUsMessage)){ ?>
+          <div class="alert alert-<?= $status ?>">
+              <?= $contactUsMessage ?>
+          </div>
+      <?php } ?>
   </div>
 </body>
 
 <?php
-$router->displayFooter();
+$this->displayFooter();
 ?>
 
 </html>

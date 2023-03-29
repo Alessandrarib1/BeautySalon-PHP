@@ -1,18 +1,18 @@
 <?php
+require_once("BaseController.php");
+require_once('../Service/UserService.php');
 
-class UserController
+class UserController extends BaseController
 {
-        public function getAllUsers(){
-            require_once('../Service/UserService.php');
-            $userService = new UserService();
-            return $userService->getAll();
-        }
-
-    public function validateLogin($username, $password)
+    private $userService;
+    public function __construct()
     {
-        require_once('../Service/UserService.php');
-        $userService = new UserService();
-        return $userService->validateLogin($username, $password);
-
+        $this->userService = new UserService();
     }
+    public function getAllUsers()
+    {
+        return $this->userService->getAll();
+    }
+
+
 }

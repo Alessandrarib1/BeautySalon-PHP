@@ -8,5 +8,4 @@ class Appointment
   public string $dateOfAppointment;
   public int $employeeId, $productID;
 
-
 }
