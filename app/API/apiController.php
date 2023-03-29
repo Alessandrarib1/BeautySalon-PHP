@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../Service/AppointmentService.php';
-class api
+class apiController
 {
     private $appointmentService;
 
@@ -15,23 +15,16 @@ class api
     {
         // Respond to a GET request to /api/article
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-
             $appointments = $this->appointmentService->getAllAppointments();
             header('Content-Type: application/json');
             echo json_encode($appointments);
-            // your code here
-            // return all articles in the database as JSON
-
         }
 
     }
     public function deleteAppointment(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            // your code here
             $body = file_get_contents('php://input');
             $obj = json_decode($body);
-
             $this->appointmentService->deleteAppointment($obj->id);
         }
     }
@@ -54,8 +47,8 @@ class api
            if($this->appointmentService->bookAppointment($appointment)){
                $_SESSION['message'] = "Appointment was booked successfully!!!";
            }else{  $_SESSION['message'] = "An error has occurred, please try again!!"; }
-            //unset($_SESSION['message']);
 
+            header("location: /ManagementMainPage");
     }
 
 }

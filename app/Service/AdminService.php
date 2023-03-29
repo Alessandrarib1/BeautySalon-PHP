@@ -6,7 +6,8 @@ class AdminService
     {
      require_once ("../Repository/AdminRepository.php");
         $adminRepository = new AdminRepository();
-        $adminRepository->createUser($user);
+       $user =  $adminRepository->createUser($user);
+        return $user;
     }
 
     public function getAppointmentByService($service)

@@ -22,6 +22,7 @@ class AdminRepository extends  baseRepository
         $stmt->bindParam(':firstname', $user->firstname);
         $stmt->bindParam(':lastname', $user->lastname);
         $result=$stmt->execute();
+        return  $result;
     }
 
     public function getAppointmentByService($service)

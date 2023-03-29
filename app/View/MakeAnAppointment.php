@@ -54,7 +54,7 @@
             <div class="row justify-content-evenly" >
             <div class="col-4">
             <label for="Pick Time: ">Select Time</label>
-                <input required  id="time" class="form-control" type="time"  name="startingTime"> <br> <br></div>
+                <input required  id="time" class="form-control" type="time" min="10:00" max="16:00" name="startingTime"> <br> <br></div>
             <div class="col-4">
                 <label for="Pick Date: ">Select Date</label>
                 <input required id="dateOfAppointment" class="form-control" type="date"  name="dateOfAppointment">
@@ -63,7 +63,8 @@
             </div>
     </form>
     <br><br>
-    <?php if (isset($_SESSION['message'])){ ?><div class="alert alert-success"> Appointment booked successfully?</div><?php } ?>
+    <?php if (isset($_SESSION['message'])){ ?><div class="alert alert-success"> Appointment booked successfully</div><?php }
+    unset($_SESSION['message']);?>
 </div>
     <?php
     $this->displayFooter();
@@ -71,7 +72,7 @@
 
 </main>
 <script>
-    function sendForm(e){
+    function sendForm(e) {
         var dateOfAppointment = document.getElementById("dateOfAppointment").value;
         var time = document.getElementById("time").value;
         var name = document.getElementById("name").value;
@@ -79,11 +80,15 @@
         var service = document.getElementById("service").value;
         var employeeName = document.getElementById("employeeName").value;
 
-        var appointment = {dateOfAppointment: dateOfAppointment, time: time, name: name, email: email,service: service, employeeName: employeeName }
+        // set minimum date to today
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById("dateOfAppointment").setAttribute('min', today);
+
+        var appointment = { dateOfAppointment: dateOfAppointment, time: time, name: name, email: email, service: service, employeeName: employeeName }
 
         fetch('http://localhost/api/appointments/store', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(appointment)
         }).then(function (response) {
             if (response.ok) {

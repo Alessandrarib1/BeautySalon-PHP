@@ -110,7 +110,7 @@ $this->displayNavBar();
             inputEditButton.name = 'editButton';
             inputEditButton.classList.add('btn', 'btn-primary');
             inputEditButton.value = 'edit';
-            inputEditButton.formAction = '/editAppointmentView';
+            inputEditButton.formAction = '/editAppointment';
 
             const inputTextId = document.createElement('input');
             inputTextId.type = 'text';

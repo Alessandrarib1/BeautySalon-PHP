@@ -39,8 +39,6 @@ $this->displayNavBar();
         </div>
         </div>
 </div>
-
-
       <?php
       $this->displayFooter();
       ?>

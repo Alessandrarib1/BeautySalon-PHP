@@ -13,7 +13,6 @@ class HomeController extends BaseController
     public function hairStylingDetailPage()
     {
         require_once("../View/hairStylingDetailPage.php");
-
     }
     public function NailsDetailPage()
     {

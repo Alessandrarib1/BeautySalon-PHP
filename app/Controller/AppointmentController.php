@@ -1,10 +1,11 @@
 <?php
 require_once("BaseController.php");
 require_once("../Model/Appointment.php");
-require_once ("../Service/AppointmentService.php");
-require_once ("../Service/UserService.php");
+require_once("../Service/AppointmentService.php");
+require_once("../Service/UserService.php");
 require_once("../Service/ProductService.php");
 require_once("../Service/AdminService.php");
+require_once("../Model/Appointment.php");
 
 class AppointmentController extends BaseController
 {
@@ -13,48 +14,44 @@ class AppointmentController extends BaseController
     private $productService;
     private $adminService;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->userService = new UserService();
         $this->appointmentService = new AppointmentService();
         $this->productService = new ProductService();
         $this->adminService = new AdminService();
     }
-  public function DisplayAppointmentMainPage()
-  {
-      $users =  $this->userService->getAll();
-      $products = $this->productService->getAll();
 
-      /*$message = '';
-      if (isset($_SESSION['message'])) {
-          $message = $_SESSION['message'];
-          unset($_SESSION['message']);
-      }*/
-    require_once("../View/MakeAnAppointment.php");
-  }
-  public function editAppointmentView(){
-            session_start();
-            $_SESSION['appointment']  = $this->DisplayEditAppointmentPage($_POST['appointmentID']);
-            require_once ("../View/editAppointmentView.php");
-  }
-  public function DisplayEditAppointmentPage($appointment)
-  {
-      $users =  $this->userService->getAll();
-      $products = $this->productService->getAll();
-      return $this->appointmentService->getById($appointment);
-  }
+    public function DisplayAppointmentMainPage()
+    {
+        $users = $this->userService->getAll();
+        $products = $this->productService->getAll();
+        require_once("../View/MakeAnAppointment.php");
+    }
+
+    public function editAppointment()
+    {
+        $users = $this->userService->getAll();
+        $products = $this->productService->getAll();
+        $appointment = $this->appointmentService->getById($_POST['appointmentID']);
+        require_once("../View/editAppointmentView.php");
+    }
 
     public function searchByService($service)
     {
         $this->adminService->getAppointmentByService($service);
     }
+
     public function searchByDate($date)
     {
         $this->adminService->getAppointmentByDate($date);
     }
+
     public function getAvailableSpotsByService($service, $date)
     {
         $this->adminService->getAppointmentByService($service, $date);
     }
+
     public function updateAppointment()
     {
         if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['dateOfAppointment']) && !empty($_POST['startingTime']) && !empty($_POST['employee']) && !empty($_POST['service'])) {
@@ -75,16 +72,10 @@ class AppointmentController extends BaseController
             $appointment->employeeId = $updatedEmployeeId;
             $appointment->productID = $updatedProductID;
             $appointment->id = $_POST['id'];
-            require_once("../Service/AppointmentService.php");
-            $appointmentService = new AppointmentService();
-            $appointmentService->updateAppointment($appointment);
+            $this->appointmentService->updateAppointment($appointment);
+            header("location: /ManagementMainPage");
         }
     }
 
-    public function editAppointmentValidateInput()
-    {
-        require_once("../View/editAppointment.php");
-        //the content from this file has been moved to the router
-    }
 
 }

@@ -43,7 +43,7 @@
             out</button>&nbsp;
         <?php
     } else{ ?>
-        <button type="button" class="btn btn-success ;" onClick="location.href='/Login'" STYLE="margin: 2px 30px;"
+        <button type="button" class="btn btn-success ;" onClick="location.href='/login'" STYLE="margin: 2px 30px;"
                 id="loginButton">Login</button>&nbsp;
     <?php }?>
 </nav>

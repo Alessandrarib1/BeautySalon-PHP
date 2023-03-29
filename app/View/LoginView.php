@@ -24,7 +24,7 @@ $this->displayNavBar();
     <div id="loginDiv" class="text-center col-12" style=" height: 500px;">
         <br><br>
         <br><br><br><h2>Login</h2>
-      <form class="mt-5" method="POST" action="/loginValidation">
+      <form class="mt-5" method="POST" action="/login">
         <input type="text" name="username" placeholder="Username"><br><br>
         <input type="password" name="password" placeholder="Password"><br><br>
         <input id="loginButton" type="submit" name="LoginButton" value="Login"><br><br>
