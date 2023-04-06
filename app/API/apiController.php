@@ -47,7 +47,6 @@ class apiController
            if($this->appointmentService->bookAppointment($appointment)){
                $_SESSION['message'] = "Appointment was booked successfully!!!";
            }else{  $_SESSION['message'] = "An error has occurred, please try again!!"; }
-
             header("location: /ManagementMainPage");
     }
 

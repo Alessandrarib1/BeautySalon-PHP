@@ -47,7 +47,7 @@ $this->displayNavBar();
     </form>
     <?php if (isset($contactUsMessage)){ ?>
           <div class="alert alert-<?= $status ?>">
-              <?= $contactUsMessage ?>
+              <?=$contactUsMessage?>
           </div>
       <?php } ?>
   </div>

@@ -31,17 +31,4 @@ class LoginController extends BaseController
             $this->displayLoginPage();
         }
     }
-/*
- *  $contactUsMessage = "Message was sent successfully, we will get back to you soon!!!";
-            $status = "success";
-        } else {
-            $contactUsMessage = "message was not sent!";
-            $status = "danger";
-        }
-        require_once("../View/sendUsAMessage.php");
-        // Pass $contactUsMessage and $status variables to the view
-        return [$contactUsMessage, $status];
- * */
-
-
 }

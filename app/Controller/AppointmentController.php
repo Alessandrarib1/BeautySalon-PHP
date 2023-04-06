@@ -37,20 +37,6 @@ class AppointmentController extends BaseController
         require_once("../View/editAppointmentView.php");
     }
 
-    public function searchByService($service)
-    {
-        $this->adminService->getAppointmentByService($service);
-    }
-
-    public function searchByDate($date)
-    {
-        $this->adminService->getAppointmentByDate($date);
-    }
-
-    public function getAvailableSpotsByService($service, $date)
-    {
-        $this->adminService->getAppointmentByService($service, $date);
-    }
 
     public function updateAppointment()
     {
@@ -76,6 +62,22 @@ class AppointmentController extends BaseController
             header("location: /ManagementMainPage");
         }
     }
+    //future functionalities
+   /* public function searchByService($service)
+    {
+        $this->adminService->getAppointmentByService($service);
+    }
+
+    public function searchByDate($date)
+    {
+        $this->adminService->getAppointmentByDate($date);
+    }
+
+    public function getAvailableSpotsByService($service, $date)
+    {
+        $this->adminService->getAppointmentByService($service, $date);
+    }*/
+
 
 
 }

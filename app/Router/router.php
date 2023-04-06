@@ -83,12 +83,7 @@ class router
             case "/sendUsAMessage":
                 require_once("../Controller/ContactUsController.php");
                 $contactUsController = new ContactUsController();
-                if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
-                    //TODO combine just like the update appointment and move this code to the controller
-                    $contactUsController->processData($_POST['name'], $_POST['email'], $_POST['message']);
-                } else {
-                    $contactUsController->sendUsAMessageView();
-                }
+                $contactUsController->processSendMessageRequest();
                 break;
 
             case "/Manicure":
@@ -108,6 +103,9 @@ class router
                 $makeAnAppointment = new AppointmentController();
                 $makeAnAppointment->DisplayAppointmentMainPage();
                 break;
+
+            default:
+                http_response_code(404);
                 //Code bellow is to when I add new functionalities to the webpage
                 /*
             case "/searchByService":
@@ -134,9 +132,6 @@ class router
                 $adminController->DisplayAppointmentByServiceView();
                 break;
 */
-            default:
-                http_response_code(404);
-
         }
 
     }

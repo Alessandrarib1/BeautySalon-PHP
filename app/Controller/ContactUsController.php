@@ -1,13 +1,20 @@
 <?php
 require_once("BaseController.php");
+require_once("../Service/SendUsAMessageService.php");
 
 class ContactUsController extends BaseController
 {
+    private $sendUsAMessageService;
+
+    public function __construct()
+    {
+        $this->sendUsAMessageService = new SendUsAMessageService();
+    }
+
     public function storeData($contactUs)
     {
         require_once("../Service/SendUsAMessageService.php");
-        $service = new SendUsAMessageService();
-        if ($service->storeMessageInTheDatabase($contactUs)) {
+        if ($this->sendUsAMessageService->storeMessageInTheDatabase($contactUs)) {
             $contactUsMessage = "Message was sent successfully, we will get back to you soon!!!";
             $status = "success";
         } else {
@@ -18,24 +25,27 @@ class ContactUsController extends BaseController
         // Pass $contactUsMessage and $status variables to the view
         return [$contactUsMessage, $status];
     }
-
-
     public function sendUsAMessageView()
     {
         require_once("../View/sendUsAMessage.php");
     }
-    public function processData($name, $email, $message)
+    public function processSendMessageRequest()
     {
-        if (isset($name, $email, $message)) {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $this->sendUsAMessageView();
+        } else {
+            if (!empty($_POST['name'] and !empty($_POST['email']) and !empty($_POST['message']))) {
+                {
+                    require_once("../Model/ContactUs.php");
+                    $contactUs = new ContactUs();
+                    $contactUs->name = htmlspecialchars($_POST['name']);
+                    $contactUs->email = htmlspecialchars($_POST['email']);
+                    $contactUs->message = htmlspecialchars($_POST['message']);
 
-            require_once("../Model/ContactUs.php");
-
-            $contactUs = new ContactUs();
-            $contactUs->name = htmlspecialchars($name);
-            $contactUs->email = htmlspecialchars($email);
-            $contactUs->message = htmlspecialchars($message);
-
-            $this->storeData($contactUs);
+                    $this->storeData($contactUs);
+                }
+            }
         }
     }
+
 }

@@ -26,7 +26,7 @@ class AdminController extends BaseController
                 $user->lastname = $_POST['lastname'];
                 $user->password = $_POST['password'];
                 $user->username = $_POST['username'];
-                require_once("../Service/AdminService.php");
+               // require_once("../Service/AdminService.php");
                 if ($this->adminService->createUser($user)) {
                     $registerUserMessage = "Message was sent successfully, we will get back to you soon!!!";
                     $status = "success";

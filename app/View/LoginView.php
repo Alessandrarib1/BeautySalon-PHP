@@ -32,17 +32,14 @@ $this->displayNavBar();
         <?php
         if(isset($_SESSION['LoginError'])){ ?>
             <p> <?php echo $_SESSION['LoginError'];
-            ?> </p>
-        <?php
+                ?> </p>
+            <?php
             unset($_SESSION['LoginError']);
         }?>
-
     </div>
-
   <?php
   $this->displayFooter();
   ?>
-
   </body>
 
 </html>
