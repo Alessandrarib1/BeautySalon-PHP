@@ -5,7 +5,7 @@ password-> 123
 
 
 Please use PHPmyAdmin to create the local database, it will not display properly without it. 
-Use the file endAssignment.sql  to autogenerate it
+Use the file endAssignment.sql  to autogenerate it,
 username root
 password secret123
 
